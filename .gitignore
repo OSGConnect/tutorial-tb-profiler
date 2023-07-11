@@ -1,0 +1,6 @@
+.ipynb_checkpoints/
+build/.ipynb_checkpoints/
+build/*.sif
+build/cache
+logs/
+outputs/
