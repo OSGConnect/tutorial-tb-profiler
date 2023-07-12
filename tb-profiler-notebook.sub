@@ -1,5 +1,5 @@
 universe = container
-container_image = osdf:///osgconnect/public/osg/tutorial-tb-profiler/tb-profiler-test.sif
+container_image = tb-profiler-test.sif
 transfer_executable = false
 
 executable = /opt/conda/bin/tb-profiler
@@ -7,7 +7,7 @@ arguments = profile -1 $(sequence_read)_1.fastq -2 $(sequence_read)_2.fastq -t 1
 
 should_transfer_files = yes
 data_path = osdf:///osgconnect/public/osg/tutorial-tb-profiler/tb-sra-files/$(sequence_read)
-transfer_input_files = $(data_path)/$(sequence_read)_1.fastq, $(data_path)/$(sequence_read)_2.fastq
+transfer_input_files = $(data_path)/$(sequence_read)_1.fastq, $(data_path)/$(sequence_read)_2.fastq, osdf:///osgconnect/public/osg/tutorial-tb-profiler/tb-profiler-test.sif
 output_file = $(sequence_read).results.json
 transfer_output_files = results/$(output_file)
 transfer_output_remaps = "$(output_file) = outputs/$(output_file)"
