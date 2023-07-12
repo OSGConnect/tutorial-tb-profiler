@@ -1,0 +1,25 @@
+universe = container
+container_image = tb-profiler-sra.sif
+
+executable = tb-profiler.sh
+arguments = $(sequence_read)
+
+should_transfer_files = yes
+transfer_input_files = ../build/tb-profiler-sra.sif
+output_file = $(sequence_read).results.json
+transfer_output_files = results/$(output_file)
+transfer_output_remaps = "$(output_file) = outputs/$(output_file)"
+
+log = logs/tb-profiler.log
+error = logs/$(sequence_read).$(Cluster).$(Process).err
+output = logs/$(sequence_read).$(Cluster).$(Process).out
+
+requirements = (Target.has_avx == true)
+
+request_cpus = 1
+request_memory = 4GB
+request_disk = 4GB
+
+sequence_read = SRR18714896
+queue 1
+#queue sequence_read from ../SraAccList.csv

@@ -4,3 +4,5 @@ build/*.sif
 build/cache
 logs/
 outputs/
+with-sra/logs/
+with-sra/outputs/
